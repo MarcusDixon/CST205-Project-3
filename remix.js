@@ -380,6 +380,12 @@ function createJRemixer(context, jquery, apiKey) {
             }
 
             var player = {
+                fadeIn:function(){
+                    return audioGain.gain.value=audioGain.gain.value+0.1;
+                },
+                fadeOut:function(){
+                    return audioGain.gain.value=audioGain.gain.value-0.1;
+                },
                 play: function(when, q) {
                     return queuePlay(0, q);
                 },
@@ -419,7 +425,10 @@ function createJRemixer(context, jquery, apiKey) {
                         currentTriggers = new Array();
                     }
                 },
-
+                endTime: function()
+                {
+                   return curAudioSource.duration;
+                },
                 curTime: function() {
                     return context.currentTime;
                 },
