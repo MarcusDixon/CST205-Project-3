@@ -1,0 +1,154 @@
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+#greenBtn{
+
+  color: #83F52C;
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  border-style: double;
+  border-color: #83F52C;
+  border-width: thick;
+  outline: none;
+
+}
+#greenBtn:active{
+
+  background: #83F52C;
+}
+
+#purpBtn{
+
+  color: #cc00ff;
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  border-style: double;
+  border-color: #cc00ff;
+  border-width: thick;
+  outline: none;
+
+}
+
+#purpBtn:active{
+
+  background: #cc00ff;
+}
+
+#pinkBtn{
+
+  color: #ff0099;
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  border-style: double;
+  border-color: #ff0099;
+  border-width: thick;
+  outline: none;
+}
+
+#pinkBtn:active{
+
+  background: #ff0099;
+}
+
+#blueBtn{
+
+  color: #0033ff;
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  border-style: double;
+  border-color: #0033ff;
+  border-width: thick;
+  outline: none;
+
+}
+
+#blueBtn:active{
+
+  background: #0033ff;
+}
+
+#tealBtn{
+
+  color: #66ffcc;
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  border-style: double;
+  border-color: #66ffcc;
+  border-width: thick;
+  outline: none;
+}
+
+#tealBtn:active{
+
+  background: #66ffcc;
+}
+
+#redBtn{
+
+  color: #ff0000;
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  border-style: double;
+  border-color: #ff0000;
+  border-width: thick;
+  outline: none;
+
+}
+
+#redBtn:active{
+
+  background: #ff0000;
+}
+
+#orangeBtn{
+
+  color: #ff9900;
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  border-style: double;
+  border-color: #ff9900;
+  border-width: thick;
+  outline: none;
+  margin: auto;
+
+}
+#orangeBtn:active{
+
+  background: #ff9900;
+}
+
+.col-md-offset-12{
+
+  background-color:  #ffff33 ;
+  right: 450px;
+  width: 400px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.btn{
+
+  position: relative;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-right: 2px;
+  margin-left: 2px;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+hr {
+    display: block;
+    border-style: none;
+    border-width: 0px;
+}
