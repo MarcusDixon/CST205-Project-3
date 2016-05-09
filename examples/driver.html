@@ -18,7 +18,9 @@ var trackURL = 'audio/1451_-_D.mp3';
 var trackID2 = 'TRBIBEW13936EB37C9';
 var trackURL2 = 'audio/1451_-_E.mp3'
 
+
 var context;
+var context2;
 var remixer;
 var remixer2;
 var player;
@@ -47,6 +49,7 @@ function getSong(){
 console.log(myjson); 
   
 }
+
 //getSong();
 function getRemix(remixer,player,trackID,trackURL,track,context,apiKey,info)
 {
@@ -75,6 +78,28 @@ function getRemix(remixer,player,trackID,trackURL,track,context,apiKey,info)
         });
     return [remixer,remixed,track,player];
 }
+function makeButtons( index,name,remixed)
+{
+    //Create an input type dynamically.   
+    var element = document.createElement("input");
+    //Assign different attributes to the element. 
+    element.type = "button";
+    element.value = ""; // Really? You want the default value to be the type string?
+    element.name = name;  // And the name too?
+    element.onclick = function() { // Note this is a function
+    if(index==0)
+    {
+        player2.play(0,remixed[index]);
+    }
+    else{
+        player2.play(remixed[index],remixed[index+40]);
+    }
+    };
+
+    var foo = document.getElementById("buttons");
+    //Append the element in page (in span).  
+    foo.appendChild(element);
+}
 function init() {
     var contextFunction = window.webkitAudioContext || window.AudioContext;
     if (contextFunction === undefined) {
@@ -82,16 +107,27 @@ function init() {
             + " support it. Try the latest version of Chrome?");
     } else {
        context = new contextFunction();
+       context2= new contextFunction();
         remixCon= getRemix(remixer,player,trackID,trackURL,track,context,apiKey,"#info");
         remixer = remixCon[0];
         remixed = remixCon[1];
         track  = remixCon[2];
         player = remixCon[3];
-       
-      
+       player2 = remixer.getPlayer();
+        var i=0;
     // Set up the keyboard controls
     document.addEventListener('keydown', function(event) {
-        
+        if(event.which ==82)
+        {
+            if(i=remixed.length)
+            {
+                i=0;
+            }
+          
+            
+                player.play(0,remixed[i]);
+            i++
+        }
         if (event.which == 39) {  // right arrow
             playbackIndex = playbackIndex + 1;
             if (playbackIndex > remixed.length - 1) {
@@ -132,28 +168,29 @@ function init() {
         if (event.which==65)//on a    fade in
         {
             player.fadeIn();
-            console.log( player.curTime());
+            //console.log( player.endTime()); does not work neeeds to be deleted
         }
-        if(event.which==81)
+        if(event.which==81)//on q
         {
-        remixCon2= getRemix(remixer2,player2,trackID2,trackURL2,track2,context,apiKey,"#info2");
-        remixer2 = remixCon2[0];
-        remixed2 = remixCon2[1];
-        track2  = remixCon2[2];
-        player2 = remixCon2[3];
+          
+       
+        for(i=0;i<remixed.length-42;i++)
+        {
+        makeButtons(i,"button"+i,remixed);
+        }
         }
         if (event.which== 80)//on p
         {
-            player.play(0,remixed);
-      
-        //    player2.play(0,remixed2)
+        console.log(remixed2);
+          player.play(0,remixed);
+       
         }
         if(event.which== 9){//tab key replay
         player.stop();
         player.play(0,remixed);
         }
         if(event.which== 83){// s key
-            player.stop();
+         player.play(0,trackURL2);
         }
         
     });
@@ -171,6 +208,7 @@ Press the up and and down arrow keys to move through the track by bar.
 Press the tab keys to replay the song
 Press the  s to stop the song
 <button onClick="player.stop()">Stop!</button>
+<span id="buttons"></span>
 </body>
 
 
