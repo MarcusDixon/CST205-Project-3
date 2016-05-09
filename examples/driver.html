@@ -12,54 +12,95 @@
 // Hop through the beats of a track using the arrow keys
 // You will need to supply your Echo Nest API key, the trackID, and a URL to the track.
 // The supplied track can be found in the audio subdirectory.
-var apiKey = 'LA2Y1VTHC4KU8MMPU';
+var apiKey = '';
 var trackID = 'TRCYWPQ139279B3308';
-var trackURL = 'audio/1451_-_D.mp3'
+var trackURL = 'audio/1451_-_D.mp3';
+var trackID2 = 'TRBIBEW13936EB37C9';
+var trackURL2 = 'audio/1451_-_E.mp3'
 
+var context;
 var remixer;
+var remixer2;
 var player;
+var player2;
 var track;
+var track2;
 var remixed;
+var remixed2;
+var newTrack;
 var playbackIndex = -1;
+var myjson;
+var remixCon;
+var remixCon2;
+function getSong(){
+    
+    $.ajax({
+  url: 'http://developer.echonest.com/api/v4/song/search?api_key='+apiKey+'&callback=?&artist=kanye%20west&title=all%20of%20the%20lights',
+  dataType: 'json',
+  async: false,
+  success: function(data) {
+      
+    myjson = data;
+    
+  }
+});
+console.log(myjson); 
+  
+}
+//getSong();
+function getRemix(remixer,player,trackID,trackURL,track,context,apiKey,info)
+{
+   remixer = createJRemixer(context, $, apiKey);
+       
+        player = remixer.getPlayer();
+        
+        $(info).text("Loading analysis data...");
+       
+        remixer.remixTrackById(trackID, trackURL, function(t, percent) {
+            track = t;
 
+            $(info).text(percent + "% of the track loaded");
+            if (percent == 100) {
+                $(info).text(percent + "% of the track loaded, remixing...");
+            }
+
+            if (track.status == 'ok') {
+                
+                remixed = new Array();
+                for (var i=0; i < track.analysis.beats.length; i++) {
+                    remixed.push(track.analysis.beats[i])
+                }
+                $(info).text("Remix complete!");
+            }
+        });
+    return [remixer,remixed,track,player];
+}
 function init() {
     var contextFunction = window.webkitAudioContext || window.AudioContext;
     if (contextFunction === undefined) {
         $("#info").text("Sorry, this app needs advanced web audio. Your browser doesn't"
             + " support it. Try the latest version of Chrome?");
     } else {
-        var context = new contextFunction();
-        remixer = createJRemixer(context, $, apiKey);
-        player = remixer.getPlayer();
-        $("#info").text("Loading analysis data...");
-
-        remixer.remixTrackById(trackID, trackURL, function(t, percent) {
-            track = t;
-
-            $("#info").text(percent + "% of the track loaded");
-            if (percent == 100) {
-                $("#info").text(percent + "% of the track loaded, remixing...");
-            }
-
-            if (track.status == 'ok') {
-                remixed = new Array();
-                for (var i=0; i < track.analysis.beats.length; i++) {
-                    remixed.push(track.analysis.beats[i])
-                }
-                $("#info").text("Remix complete!");
-            }
-        });
-    
+       context = new contextFunction();
+        remixCon= getRemix(remixer,player,trackID,trackURL,track,context,apiKey,"#info");
+        remixer = remixCon[0];
+        remixed = remixCon[1];
+        track  = remixCon[2];
+        player = remixCon[3];
+       
+      
     // Set up the keyboard controls
     document.addEventListener('keydown', function(event) {
+        
         if (event.which == 39) {  // right arrow
             playbackIndex = playbackIndex + 1;
             if (playbackIndex > remixed.length - 1) {
                 playbackIndex = 0;
             }
             player.play(0, remixed[playbackIndex]);
+            
         }
-
+       
         if (event.which == 37) {  // left arrow
             playbackIndex = playbackIndex - 1;
             if (playbackIndex < 0) {
@@ -84,13 +125,37 @@ function init() {
       
            
         }
-        if(event.which== 9){//tab key
+        if (event.which== 73){//on i
+        
+          player.fadeOut();
+        }
+        if (event.which==65)//on a    fade in
+        {
+            player.fadeIn();
+            console.log( player.curTime());
+        }
+        if(event.which==81)
+        {
+        remixCon2= getRemix(remixer2,player2,trackID2,trackURL2,track2,context,apiKey,"#info2");
+        remixer2 = remixCon2[0];
+        remixed2 = remixCon2[1];
+        track2  = remixCon2[2];
+        player2 = remixCon2[3];
+        }
+        if (event.which== 80)//on p
+        {
+            player.play(0,remixed);
+      
+        //    player2.play(0,remixed2)
+        }
+        if(event.which== 9){//tab key replay
         player.stop();
         player.play(0,remixed);
         }
         if(event.which== 83){// s key
             player.stop();
         }
+        
     });
     }
 }
@@ -99,7 +164,8 @@ window.onload = init;
 </script>
 
 Welcome to Driver.html
-<div id='info'> </div>
+<div id='info'> </div><br>
+<div id='info2'></div>
 Press the right and left arrow keys to move through the track by beat.
 Press the up and and down arrow keys to move through the track by bar.
 Press the tab keys to replay the song
