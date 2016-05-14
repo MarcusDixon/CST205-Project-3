@@ -2,7 +2,7 @@
 
 //Note this is how to upload a song to remixed, unfornately the page would need to be reloaded after the call to get the actual remix
 /*$post = array(
-     "url"=>"https://musicp-blockwood.c9users.io/CST205project/echo/examples/music/Opera_Singer.mp3",
+     "url"=>"https://musicp-blockwood.c9users.io/CST205project/echo/examples/music/Seven_Nation_Army.mp3",
      "api_key"=>"LA2Y1VTHC4KU8MMPU"
 );
 $ch = curl_init();
@@ -11,8 +11,8 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_URL, "http://developer.echonest.com/api/v4/track/upload");
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
-$response = curl_exec($ch);*/
-
+$response = curl_exec($ch);
+var_dump($response);*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,7 +71,7 @@ $response = curl_exec($ch);*/
 <audio src="audio/BL_Cm_85_lead_phrase_NeverGonLetYouGo.wav" id="never"></audio>
 <audio src="audio/BPM.wav" id="ghostShell"></audio>
 <audio src="audio/Loops.wav" id="house"></audio>
-<audio src="audio/LL_138_trap_hihat_loop_5.aif" id="hiHat"></audio>
+<audio src="audio/SFW_Drop_Loop_12_E_125_BPM.wav" id="hiHat"></audio>
 <audio src="audio/MdL_94_drum_loop_kittychop.wav" id="kitty"></audio>
 
 
@@ -438,6 +438,11 @@ window.onload = init;
                 <option value="music/Opera_Singer.mp3 TRJGGMD154ABE12801">Cake-Opera Singer</option>
                 <option value="music/Cthulhu_Steps.mp3 TRJDOEO154AC0C7C88">Deadmau5-Cthulhu Steps</option>
                 <option value="music/City_In_Florida.mp3 TRPNOLW154AC0A1605">Deadmau5-City In Florida</option>
+                <option value="music/Hooked_On_A_Feeling.mp3 TRWYVRI154AD838E9F">Blue Swede-Hooked On A Feeling</option>
+                <option value="music/Ain't_No_Rest_For_the_Wicked.mp3 TRWBPMG154AD87F492">Cage the Elephant-Ain't No Rest For the Wicked</option>
+                <option value="music/Sail.mp3 TROFWQU154AD8E6848">AWOLNATION-Sail</option>
+                <option value="music/Walk_This_Way.mp3 TRINMYI154AD9137E1">Aerosmith-Walk This Way</option>
+                <option value="music/Seven_Nation_Army.mp3 TRNTNZC154AD93AA81">Seven Nation Army-The White Stripes</option>
               </select>&nbsp
               
     
