@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .green{
   
   color: #83F52C;
@@ -37,50 +36,10 @@
 }
 
 .purpBtn:active{
-=======
-.vcenter {
-    display: inline-block;
-    vertical-align: middle;
-    float: none;
-}
-
-#greenBtn{
-
-  color: #83F52C;
-  width: 50px;
-  height: 50px;
-  background-color: black;
-  border-style: double;
-  border-color: #83F52C;
-  border-width: thick;
-  outline: none;
-
-}
-#greenBtn:active{
-
-  background: #83F52C;
-}
-
-#purpBtn{
-
-  color: #cc00ff;
-  width: 50px;
-  height: 50px;
-  background-color: black;
-  border-style: double;
-  border-color: #cc00ff;
-  border-width: thick;
-  outline: none;
-
-}
-
-#purpBtn:active{
->>>>>>> 3a1bf529be769f7fdfde21dcad16f5fd52bc4cb2
 
   background: #cc00ff;
 }
 
-<<<<<<< HEAD
 .pink{
   
   color: #ff0099;
@@ -112,48 +71,15 @@
   background-color: black;
  /* border-style: double;
   border-width: thin; */
-=======
-#pinkBtn{
-
-  color: #ff0099;
-  width: 50px;
-  height: 50px;
-  background-color: black;
-  border-style: double;
-  border-color: #ff0099;
-  border-width: thick;
-  outline: none;
-}
-
-#pinkBtn:active{
-
-  background: #ff0099;
-}
-
-#blueBtn{
-
-  color: #0033ff;
-  width: 50px;
-  height: 50px;
-  background-color: black;
-  border-style: double;
-  border-color: #0033ff;
-  border-width: thick;
->>>>>>> 3a1bf529be769f7fdfde21dcad16f5fd52bc4cb2
   outline: none;
 
 }
 
-<<<<<<< HEAD
 .blueBtn:active{
-=======
-#blueBtn:active{
->>>>>>> 3a1bf529be769f7fdfde21dcad16f5fd52bc4cb2
 
   background: #0033ff;
 }
 
-<<<<<<< HEAD
 .teal{
   
   color: #66ffcc;
@@ -186,48 +112,15 @@
   background-color: black;
  /* border-style: double;
   border-width: thin;*/
-=======
-#tealBtn{
-
-  color: #66ffcc;
-  width: 50px;
-  height: 50px;
-  background-color: black;
-  border-style: double;
-  border-color: #66ffcc;
-  border-width: thick;
-  outline: none;
-}
-
-#tealBtn:active{
-
-  background: #66ffcc;
-}
-
-#redBtn{
-
-  color: #ff0000;
-  width: 50px;
-  height: 50px;
-  background-color: black;
-  border-style: double;
-  border-color: #ff0000;
-  border-width: thick;
->>>>>>> 3a1bf529be769f7fdfde21dcad16f5fd52bc4cb2
   outline: none;
 
 }
 
-<<<<<<< HEAD
 .redBtn:active{
-=======
-#redBtn:active{
->>>>>>> 3a1bf529be769f7fdfde21dcad16f5fd52bc4cb2
 
   background: #ff0000;
 }
 
-<<<<<<< HEAD
 .orange{
   
   color: #ff9900;
@@ -246,29 +139,12 @@
 }
 
 .orangeBtn:active{
-=======
-#orangeBtn{
-
-  color: #ff9900;
-  width: 50px;
-  height: 50px;
-  background-color: black;
-  border-style: double;
-  border-color: #ff9900;
-  border-width: thick;
-  outline: none;
-  margin: auto;
-
-}
-#orangeBtn:active{
->>>>>>> 3a1bf529be769f7fdfde21dcad16f5fd52bc4cb2
 
   background: #ff9900;
 }
 
 .col-md-offset-12{
 
-<<<<<<< HEAD
 /*  background-color: red;*/
   right: 450px;
   width: 450px;
@@ -287,32 +163,12 @@
   border-width: thick;
   outline: none;
   cursor: pointer;
-=======
-  background-color:  #ffff33 ;
-  right: 450px;
-  width: 400px;
-  margin-right: auto;
-  margin-left: auto;
-}
-.btn{
-
-  position: relative;
-  margin-top: 2px;
-  margin-bottom: 2px;
-  margin-right: 2px;
-  margin-left: 2px;
-}
-body {
-    margin: 0;
-    padding: 0;
->>>>>>> 3a1bf529be769f7fdfde21dcad16f5fd52bc4cb2
 }
 hr {
     display: block;
     border-style: none;
     border-width: 0px;
 }
-<<<<<<< HEAD
 body{
   background-color: black;
   font-family: 'Raleway', sans-serif;
@@ -403,17 +259,3 @@ input[type=submit] {
     -webkit-border-radius: 5px;
     border-radius: 5px; 
 }
-=======
-#test{
-
-  color: makeColor();
-  width: 50px;
-  height: 50px;
-  background-color: black;
-  border-style: double;
-  border-color: makeColor();
-  border-width: thick;
-  outline: none;
-  margin: auto;
-}
->>>>>>> 3a1bf529be769f7fdfde21dcad16f5fd52bc4cb2
